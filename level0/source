@@ -1,0 +1,12 @@
+
+int main(in ac, char **av)
+{
+	if (423 == atoi(av[1]))
+	{
+		s = strdup("/bin/sh");
+		execv(s);
+	}
+	else 
+		fwrite(1, "no !\n", 5);
+	return (0);
+}
