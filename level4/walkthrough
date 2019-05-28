@@ -1,0 +1,9 @@
+L'exploit est vraiment similaire a celui d'avant, sauf que la valeur de comparaison est une enorme valeur.
+0x1025544 = 16930116
+On pouvait pas ecrire  autant de lettre donc il a fallut trouver un tricks.
+En utilisant le %d on edt pas oblige de mettre des lettre mais le chiffre etant trop grand il a fallut le faire en deux fois.
+Le formattage %2h nous permet d'ecrire sur 2 octets au lieu de 4 a l'adresse 0x8049810 et 0x8049812 puisque ce sera par 2 octets.
+Il a donc fallut split 0x1025544 en deux, doc 0x120=258 et 0x5544=21828.
+les coupler aux adresse  0x8049810 et 0x8049812 et les injecter avec %hn.
+Payload :
+(python -c 'print "\x12\x98\x04\x08" + "\x10\x98\x04\x08" + "%250d%12$hn" + "%21570d%13$hn"') | ./level4 
