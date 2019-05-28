@@ -1,0 +1,16 @@
+
+void n(void)
+{
+	char buf[512];
+
+	fgets(buf, 512, STDIN);
+	printf(buf);
+	exit(1);
+}
+
+int main(void)
+{
+	//align_stack..
+	n();
+	return (0);
+}
