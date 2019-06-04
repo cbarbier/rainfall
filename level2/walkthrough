@@ -4,7 +4,9 @@
 0x08048500 <+44>:	cmp    $0xb0000000,%eax
 
 # It means we cannot overwrite the eip by a stack address
-# We overwrite it by the address of the ret instruction in the heap
+# We overwrite it by the address of the ret instruction
+# thus it will pop eip again , this time with the address
+# of shellcode on the stack .
 
    0x080484d4 <+0>:	push   %ebp
    0x080484d5 <+1>:	mov    %esp,%ebp
