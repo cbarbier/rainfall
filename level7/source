@@ -30,4 +30,4 @@ int main(argc, argv)
 	fgets(buff, 0x44, f);
 	puts("~~");
 	return (0);
-}
+
