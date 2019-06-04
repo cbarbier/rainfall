@@ -1,0 +1,5 @@
+# lets oveflow the strcpy function.
+# we can overwrite the return adress at the 
+# offset 72. 
+# so lets put some nopsled and shellcode within the
+# argv[1] then make the eip point to the nops.
