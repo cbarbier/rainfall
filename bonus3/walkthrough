@@ -1,0 +1,9 @@
+# we completely reversed the binary
+# the first arg is atoi'ed then it sets
+# a null byte to this offset in the read buffer.
+# Next, it compares the argv and buf read with strcmp.
+# To satisfy these two conditions we tried the empty string.
+# atoi returns 0 and the buf will be "" so it passes the condition.
+# Et voila. 
+
+# ./bonus3 ""
