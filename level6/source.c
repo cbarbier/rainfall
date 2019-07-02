@@ -1,7 +1,7 @@
 
 m()
 {
-	puts("nop");
+	puts("Nope");
 }
 
 int main(int ac, char **av)
