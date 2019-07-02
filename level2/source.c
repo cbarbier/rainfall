@@ -13,6 +13,7 @@ int p()
     _exit(1);
   }
   puts(buf);
+  strdup(buf);
 }
 
 int main()
