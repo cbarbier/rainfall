@@ -6,7 +6,7 @@ struct s
 
 char buff[]
 
-m()
+void m()
 {
 	printf("%s - %d\n", buff, time(0));
 }

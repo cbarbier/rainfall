@@ -1,3 +1,4 @@
+int res = 0; // 08049804
 
 void p(char *buf)
 {
@@ -6,17 +7,16 @@ void p(char *buf)
 
 void n()
 {
-    char *buf;
-    int res = 0;
-
-    fget(buf, 100, stream);
-    p(buf);
-    if (res == 0x1025544)
-        system("cat /home/user/level4/.pass");
+    char buf[512];
+    
+	fgets(buf, 512, STDIN);
+	p(buf);
+	if (res == 0x1025544)
+        system("/bin/cat /home/user/level5/.pass");
 }
 
 main()
 {
     n();
     return (1);
-}
+
