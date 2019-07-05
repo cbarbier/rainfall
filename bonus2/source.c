@@ -25,7 +25,7 @@ int main(int ac, char **av)
         return (1);
     bzero(buf,19);
     strncpy(buf, av[1], 40);
-    strncpy(buf + 40, av[2], 40);
+    strncpy(buf + 40, av[2], 32);
      lang = getenv("LANG");
     if (lang)
     {
