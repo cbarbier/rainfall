@@ -13,6 +13,7 @@ int main(int argc, char **argv)
 	n = atoi(argv[1]);
 	buf[n] = 0;
 	fread(buf + 66, 1, 65, f);
+	flcose(f);
 	if (!strcmp(argv[1], buf))
 		execl("sh", "/bin/sh");
 	else

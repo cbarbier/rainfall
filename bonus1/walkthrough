@@ -1,4 +1,4 @@
-# Underflow exploit
+# overflow exploit
 # We saw the first arg must be < 9
 # We tried with negative values, memcpy segv
 # We put negative value and argv[2], it smsh the eip address
