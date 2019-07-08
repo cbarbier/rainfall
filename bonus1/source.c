@@ -2,7 +2,7 @@
 int main(int ac, char **av)
 {
 	int l;
-	char buf[64];
+	char buf[44];
 
 	l = atoi(av[1]);
 	if (l >= 9)
