@@ -1,4 +1,4 @@
 # Open the binary with gdb
-# We saw an comparaison with 423
+# We saw an comparaison with 423 line 0x08048ed9 <+25>
 # Tried to put it in argument
 # it works
