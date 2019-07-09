@@ -1,7 +1,7 @@
 
 void n(void)
 {
-	char buf[512];
+	char buf[520];
 
 	fgets(buf, 512, STDIN);
 	printf(buf);
@@ -10,7 +10,6 @@ void n(void)
 
 int main(void)
 {
-	//align_stack..
 	n();
 	return (0);
 }
