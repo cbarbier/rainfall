@@ -4,7 +4,7 @@ struct s
 	char *data;
 }
 
-char buff[]
+char buff[];
 
 void m()
 {
@@ -13,7 +13,7 @@ void m()
 
 int main(argc, argv)
 {
-	struct s * s1, s2;
+	struct s *s1, *s2;
 	FILE *f;
 
 	s1 = malloc(8);
@@ -30,4 +30,4 @@ int main(argc, argv)
 	fgets(buff, 0x44, f);
 	puts("~~");
 	return (0);
-
+}
