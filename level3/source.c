@@ -1,7 +1,7 @@
 
 void v()
 {
-	char buf[512];
+	char buf[520];
 	int c = 0; // 0804988c
 
 	fget(buf,512,STDIN);
