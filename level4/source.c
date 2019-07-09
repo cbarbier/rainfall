@@ -7,7 +7,7 @@ void p(char *buf)
 
 void n()
 {
-    char buf[512];
+    char buf[520];
     
 	fgets(buf, 512, STDIN);
 	p(buf);
@@ -19,4 +19,4 @@ main()
 {
     n();
     return (1);
-
+}
