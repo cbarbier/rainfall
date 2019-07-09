@@ -2,9 +2,10 @@
 
 int p()
 {
-	char buf[80];
+	char buf[64];
 	unsigned int ret;
 
+	fflush(STDOUT);
 	gets(buf);
 	ret = __builtin_return_address(0);
 
