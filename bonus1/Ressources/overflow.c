@@ -4,7 +4,14 @@
 // test with -1073741813
 int main(int argc, char **argv)
 {
-	long i = 4 * atol(argv[1]);
-	printf("%1$ld %1$u\n", i);
+	int target = atoi(argv[1]);
+	int i = 0;
+
+	while ( (int)(4 * i) != target) 
+	{
+			i--;
+	}
+	
+	printf("%d", i);
 	return (0);
 }
